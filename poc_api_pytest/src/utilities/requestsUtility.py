@@ -1,4 +1,5 @@
 import requests
+import logging as logger
 import os
 import json
 from poc_api_pytest.src.configs.hosts_config import API_HOSTS
@@ -16,14 +17,19 @@ class RequestsUtility:
         self.auth = OAuth1(self.wc_creds['wc_key'], self.wc_creds['wc_secret'])
 
     def post(self, endpoint, payload=None, headers=None):
-
         if not headers:
             headers = {"Content-Type": "application/json"}
 
         url = self.base_url + endpoint
         rs_api = requests.post(url=url, data=json.dumps(payload), auth=self.auth, headers=headers)
-
+        logger.debug(f"POST API response: {rs_api.json()}")
         return rs_api
 
-    def get(self):
-        pass
+    def get(self, endpoint, payload=None, headers=None, expected_status_code=200):
+        if not headers:
+            headers = {"Content-Type": "application/json"}
+
+        url = self.base_url + endpoint
+        rs_api = requests.get(url=url, data=json.dumps(payload), auth=self.auth, headers=headers)
+        logger.debug(f"GET API response: {rs_api.json()}")
+        return rs_api
