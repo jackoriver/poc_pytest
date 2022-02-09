@@ -1,5 +1,5 @@
 API_HOSTS = {
-    "test": "http://www.fidelitasplayground.xyz/wp-json/wc/v3/",
+    "test": "http://localhost:8080/wp-json/wc/v3/",
     "dev": "",
     "prod": ""
 }

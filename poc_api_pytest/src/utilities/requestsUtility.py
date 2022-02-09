@@ -10,7 +10,6 @@ from poc_api_pytest.src.utilities.credentialsUtility import CredentialsUtility
 class RequestsUtility:
 
     def __init__(self):
-        # import pdb; pdb.set_trace()
         self.wc_creds = CredentialsUtility.get_wc_api_keys()
         self.env = os.environ.get('ENV', 'test')
         self.base_url = API_HOSTS[self.env]

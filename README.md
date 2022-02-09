@@ -1,1 +1,1 @@
-# This an automation framework for API based on Pytest
+# This is an automation framework for RestAPI based on Pytest

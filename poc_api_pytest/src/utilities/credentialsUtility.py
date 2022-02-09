@@ -2,8 +2,6 @@ import os
 
 
 class CredentialsUtility:
-    def __init__(self):
-        pass
 
     @staticmethod
     def get_wc_api_keys():
@@ -14,3 +12,13 @@ class CredentialsUtility:
             raise Exception("The API creds must be a env variables")
         else:
             return {'wc_key': wc_key, 'wc_secret': wc_secret}
+
+    @staticmethod
+    def get_db_credentials():
+        db_user = os.environ.get('DB_USER')
+        db_password = os.environ.get('DB_PASSWORD')
+
+        if not db_user or not db_password:
+            raise Exception("The Database creds must be a env variables")
+        else:
+            return {'db_user': db_user, 'db_password': db_password}
