@@ -16,3 +16,9 @@ venv/
 allure_results/
 .pytest_cache/
 .DS_Store
+
+#docker Servers
+wordpress/
+mariadb/
+testlink_data/
+jira-data/
